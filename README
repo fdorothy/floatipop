@@ -1,0 +1,42 @@
+== Float-i-pop ==
+
+Developed by UAB Game Developers Club (http://www.uab.edu/gamedev/)
+Created by Mark Dillavou (line72@users.sf.net)
+Art by Fred Dorothy (fdorothy@uab.edu)
+Music By Noby [battleofsteel.xm (http://modarchive.org/index.php?request=view_by_moduleid&query=155914) release under public domain]
+
+== License: ==
+
+This game is released under the GPLv2 or later
+
+== Objective: ==
+
+Fly your shrimp as long as possible.  There is no end, EVAR!! HAHAH
+
+== Controls: ==
+
+Space will flap your tail, arrows will control your movement.  
+
+== System Requirements: ==
+
+Float-i-pop has been tested on Windows, Linux, and Mac OSX Platforms.  For Windows and Mac OSX, it is easiest to download the binary packages instead of the source code.
+
+Linux:
+ python > 2.4 (python.org)
+ pygame (www.pygame.org)
+ libSDL (www.libsdl.org)
+ libSDL_mixer
+ libSDL_ttf
+ libSDL_image
+
+$ python setup.py build
+$ python setup.py install (as root or sudo)
+
+$ floatipop
+
+Windows
+
+ install python 2.5 
+ install pygame (www.pygame.org)
+ Double click on floatipop.py
+

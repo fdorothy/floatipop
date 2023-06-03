@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+#
+# Copyright (C) 2008 - Mark Dillavou
+# Copyright (C) 2008 - UAB Game Developers Club (www.uab.edu/gamedev/)
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.
+
+import sys, os
+
+import pygame
+
+try: # local install
+   import src.floatipop as floatipop
+   found = False
+   for i in ('..', '.', os.path.join('..', 'share', 'floatipop'), os.path.join('.', 'share', 'floatipop')):
+      try:
+         os.stat(os.path.join(os.path.dirname(sys.argv[0]), i, 'data'))
+         floatipop.DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), i, 'data'))
+         found = True
+         break
+      except OSError:
+         pass
+except ImportError:
+   import floatipop
+   found = False
+   for i in (os.path.join('..', 'share', 'floatipop'), os.path.join('.', 'share', 'floatipop')):
+      try:
+         os.stat(os.path.join(os.path.dirname(sys.argv[0]), i, 'data'))
+         floatipop.floatipop.DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), i, 'data'))
+         found = True
+         break
+      except OSError:
+         pass
+
+   if not found:
+      print('Error locating necessary data.  Please try reinstalling!')
+      sys.exit(1)
+
+print('data dir is', floatipop.DATA_DIR)
+
+if __name__ == '__main__':
+   floatipop.main()
